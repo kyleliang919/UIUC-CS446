@@ -1,0 +1,24 @@
+Here is a brief description of the contents of this directory
+
+- README: This file
+
+- src: This contains the java sources. It contains five files:
+   1. Id3.java: A modified version of Weka's Id3 code, which can be trained upto a limited depth.
+
+   2. FeatureGenerator.java: A feature generator that generates features 10 types of the features in the ARFF format.
+
+   3. SGD.java: Implementation of the stochastic gradient decent classifier.
+
+   4. WekaTester.java: code for loading data and four experiments on the corresponding data
+
+- lib: This contains the weka.jar corresponding to Weka v3.6.3
+  
+- test.sh: A shell script that runs the feature generator and the decision tree trainer
+
+- Makefile: A makefile to compile the java code
+ 
+- Author: Kaizhao Liang
+
+- email: kl2@illinois.edu
+
+-Acknowledgement: part of the codes is from the example code given on http://l2r.cs.illinois.edu/~danr/Teaching/CS446-17/homework.html#hw21

@@ -1,0 +1,357 @@
+\input{cs446.tex}
+\usepackage{graphicx,amssymb,amsmath,url}
+\usepackage{color}
+\sloppy
+\newcommand{\ignore}[1]{}
+
+\oddsidemargin 0in
+\evensidemargin 0in
+\textwidth 6.5in
+\topmargin -0.5in
+\textheight 9.0in
+
+\begin{document}
+
+\assignment{Spring 2017}{2}{February 03, $2017$}{February 15, $2017$}
+
+\begin{footnotesize}
+\begin{itemize}
+\item Feel free to talk to other members of the class in doing the homework.  I am
+more concerned that you learn how to solve the problem than that you
+demonstrate that you solved it entirely on your own.  You should, however,
+write down your solution yourself.  Please try to keep the solution brief and
+clear.
+
+\item Please use Piazza first if you have questions about the homework.
+  Also feel free to send us e-mails and come to office hours.
+
+\item Please, no handwritten solutions. You will submit your solution manuscript as a single pdf file.
+
+
+\item 
+A large portion of this assignment deals with programming decision trees to see them
+in action. While we do provide several pieces of code, you are required to try and test
+several decision tree algorithms by writing your own code. While we encourage discussion
+within and outside the class, \textcolor{red}{cheating and copying code is strictly 
+discouraged. Copied code will result in the entire assignment being discarded at the very least}.
+
+\item The homework is due at 11:59 PM on the due date. We will be using
+Compass for collecting the homework assignments. Please submit your solution manuscript as a pdf file via Compass 
+(\texttt{http://compass2g.illinois.edu}). Please do NOT hand in a hard copy of your write-up.
+Contact the TAs if you are having technical difficulties in 
+submitting the assignment. 
+\end{itemize}
+\end{footnotesize}
+
+\begin{enumerate}
+\item \textbf{Learning Decision Trees -- 20 points}
+
+  \begin{enumerate}
+  \item \textbf{[7 points]} You will determine the attribute that will be the root of the decision tree if you apply ID3 algorithm on the data set summarized in Table 1. Table 1
+reports the information pieces that are required in determining the root attribute,
+by using the concept of information gain
+
+  \begin{table}[h]
+    \centering
+    \begin{tabular}[h]{|c|c|c|c|c|}
+      \hline
+      \texttt{Attribute} & \texttt{Value} & \texttt{Study Today = yes} & \texttt{Study Today = no} \\
+      \hline
+      Holiday      & yes      & 20   & 1       \\
+      Holiday      & no      & 15   & 14        \\
+      Exam Tomorrow      & yes      & 10       & 5        \\
+      Exam Tomorrow      & no      & 25       & 10        \\
+      \hline
+    \end{tabular}
+    \caption{The {\tt Study Pattern} data set}
+    \label{tab:Balloons}
+  \end{table}
+  
+  The data set consists of two binary attributes (\texttt{Holiday, Exam Tomorrow}) and a
+binary label (\texttt{Study Today}). There are 50 instances in the data set, 35 of which are positive (\texttt{Study Today} = yes) and the remaining 15 are negative (\texttt{Study Today}= no). From Table 1, we can see that there are 20 such instances when students
+study during a holiday (i.e., 20 instances with \texttt{Holiday} = yes and \texttt{Study Today}= yes) and, 1 such instances when a student does not study during a holiday (i.e.,
+1 instance with \texttt{Holiday} = yes and \texttt{Study Today} = no). Similarly, we can
+see that there are 10 such instances when students study before an examination
+(i.e., 10 instances with \texttt{Exam Tomorrow} = yes and \texttt{Study Today} = yes) and there are 5 instances when students do not study before an examination ((i.e., 5
+instances with \texttt{Exam Tomorrow} = yes and \texttt{Study Today} = no).
+
+  \item \textbf{[7 points]} For this question, you will manually induce a decision tree from a
+  small data set. Table~\ref{tab:Balloons} shows the {\tt Balloons}
+  data set from the UCI Machine Learning repository that was first used
+  for an experiment in cognitive psychology\footnote{You can learn more about
+    this data set at
+    \url{http://archive.ics.uci.edu/ml/datasets/Balloons}}.  The data
+  consists of four attributes (\texttt{Color}, \texttt{Size}, \texttt{Act}, and
+  \texttt{Age}) and a binary label (\texttt{Inflated}). You will represent this data as a decision tree using a new splitting
+heuristics. This new heuristic uses the decrease in misclassification rate to choose
+an attribute to split. If, at some node, we stop growing the tree further and assign
+the majority label of the remaining examples to that node, then the empirical error
+on the training set at that node will be
+  \[ MajorityError = min(p, 1-p) \]
+    where $p$ is the fraction of examples with label $T$ and, hence, 
+  $1-p$ is the fraction of examples with label $F$. Note that this
+    error can be thought of as a measure of impurity of a node, just
+    like entropy.\\
+    Redefine information gain using $MajorityError$ as the measure of
+    impurity and use this to represent the data as a decision tree.
+    
+    \begin{table}[h]
+    \centering
+    \begin{tabular}[h]{|c|c|c|c|c|}
+      \hline
+      \texttt{Color} & \texttt{Size} & \texttt{Act} & \texttt{Age} & \texttt{Inflated} \\
+      \hline
+      Blue      & Small      & Stretch   & Adult     & {\bf F}        \\
+      Blue       & Small      & Stretch   & Child     & {\bf F}        \\
+      Blue       & Small      & Dip       & Adult     & {\bf F}        \\
+      Blue       & Small      & Dip       & Child     & {\bf F}        \\
+      Blue       & Large      & Stretch   & Adult     & {\bf F}        \\
+      Blue       & Large      & Stretch   & Child     & {\bf T}        \\
+      Blue       & Large      & Dip       & Adult     & {\bf T}        \\
+      Blue       & Large      & Dip       & Child     & {\bf T}        \\
+      Red      & Small      & Stretch   & Adult     & {\bf F}        \\
+      Red      & Small      & Stretch   & Child     & {\bf T}        \\
+      Red      & Small      & Dip       & Adult     & {\bf T}        \\
+      Red      & Small      & Dip       & Child     & {\bf T}        \\
+      Red      & Large      & Stretch   & Adult     & {\bf F}        \\
+      Red      & Large      & Stretch   & Child     & {\bf T}        \\
+      Red      & Large      & Dip       & Adult     & {\bf T}        \\
+      Red      & Large      & Dip       & Child     & {\bf T}        \\
+      \hline
+    \end{tabular}
+    \caption{The {\tt Balloons} data set}
+    \label{tab:Balloons}
+  \end{table}
+  
+  You can report the decision tree as a series of if-then statements as the following
+example shows:
+  
+  \begin{verbatim}
+if feature_0 = x :
+  if feature_1 = y :
+    if feature_2 = z :
+      class = T
+    if feature_2 != z :
+      class = F
+  if feature_1 != y :
+    class = T
+if feature_0 != x :
+  if feature_1 = y :
+    class = T
+  if feature_1 != y :
+    class = F
+\end{verbatim}
+
+  \item \textbf{[6 points]} Does ID3 guarantee a globally optimal decision tree? By optimality, we mean a decision tree perfectly fits to the training data and also has a minimal depth. Justify your answer shortly.
+  \end{enumerate}
+
+\item \textbf{Decision Trees as Features -- 80 points}
+
+In this question, you will use a variant of the ID3 algorithm from the
+Weka Machine Learning
+toolkit\footnote{\url{http://www.cs.waikato.ac.nz/ml/weka/}} to train
+decision trees. The goal of this problem is to use the decision tree
+algorithm to generate features for learning a linear separator.  You
+can use any programming language to implement the parts of the
+assignment that do not require Weka.
+
+  % What is the data
+You will use a data set that is similar to the one from the Badges
+Game introduced in class. This data has been cleaned so that each name now
+consists of two lower cased strings -- both the first and the last names.
+The labels ($+$ or $-$) are generated according to a new function. 
+The new data set is available from the homework page in a file called {\tt
+badges.tar.gz}. The archive contains a file called {\tt badges.modified.data.all} which 
+has all the examples.  Additionally, this archive contains five files
+named {\tt badges.modified.data.fold\{1-5\}} with roughly equal splits
+of the data. You will use these to perform five-fold cross validation.\footnote{In all the experiments in this problems set you will use the methodology of five-fold, cross validation. In five fold cross validation, given 5 disjoint and roughly equal splits of the data, you train on 4 parts and evaluate the accuracy of the resulting classifier on the remaining part. Repeat this five times, once for each of the five choices of the test set. The average accuracy, pA, over these five runs is a good estimate of the algorithm’s performance on unseen examples. For all the different training algorithms you implement, report the averaged accuracy and standard deviation on the given 5 folds of the data.}
+
+In the following few sections we explain the processes you will go through in the course
+of this problem set.
+  
+  
+  % What are the steps:
+  \begin{enumerate}
+    % Step 1: Write SGD + LMS with a language of your choice using
+    % identifier features for the first three characters of the first
+    % and last names. Normalize the characters by lower casing them. 
+  \item {\bf Feature Extraction and Instance Generation:} First, you need to extract
+features from the data. You need to generate ten feature types for each example.
+These feature types are Boolean in nature, and are indicators for the first five
+characters from the first and last names.
+
+    For example, consider the name ``{\tt naoki abe}'' from the
+    data set. Suppose you want to extract features corresponding to the
+    first letter ``{\tt n}'' in the first name, you will have $26$ Boolean features,
+    one for each letter in the alphabet. Only the one corresponding to
+    {\tt n} will be $1$ and the rest will be $0$.  This will give us
+    ${0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0}$, where the
+    $14^{th}$ element corresponds to the feature {\tt
+      String=First,Position=1,Character=n}. Note that
+the features defined earlier are actually feature types. In fact, you will have 260
+features of the form {\tt String=i,Position=j,Character=k}, where i can be FirstName
+or LastName, j can be 1, . . . , 5 and k can be {\tt a,b,c, \dots , z}.
+
+    In addition to the feature types described above, feel free to include
+    additional features. For example, you can invent new feature types, such
+  as features to indicate if a letter in the alphabet appears in the name or
+  not, or features based on conjunction of two feature types given
+  above, and so on.
+  
+  You need to write the features generated into
+    the Weka Attribute-Relation file format so that the next steps
+    become easier. For a description of the format, look at 
+  \url{http://weka.wikispaces.com/ARFF+%28stable+version%29} 
+    . See the Resources section below for sample feature file and code.
+
+  \item Decision Trees and SGD are the two learning algorithms you will use in this data
+set. You will use them in multiple ways, and we now explains the ways they will
+be used.
+  \begin{enumerate}
+    \item {\bf Stochastic Gradient Descent (SGD):} As a baseline, you should \textit{\textbf{implement yourself}}
+the stochastic gradient descent algorithm for the least means square method. Your
+implementation should be generic, since you will be running this algorithm also on
+v). We recommend that you use five-fold cross validation (CV) to tune the parameters
+(\textit{learning rate, error threshold}) of the SGD algorithm, i.e., to select the parameter that yields the best averaged accuracy in CV.
+
+  \item {\bf Grow decision tree:} Use the decision tree package to train a decision tree
+with the ID3 algorithm using the same feature set
+
+  \item {\bf Grow decision trees of depth 4\footnote{Decision trees with limited depth are also called decision stumps.}:} Repeat step (ii), limiting the maximum
+depth of the decision tree to four.
+
+  \item {\bf Grow decision trees of depth 8:} Repeat step (ii), limiting the maximum
+depth of the decision tree to eight.
+
+  \item {\bf Decision stumps as features:} In this part, you will
+use decision stumps to generate a feature set.
+
+    Using the feature set defined in step~(a), train hundred different
+    decision stumps of maximum depth four on the entire training
+    set. {\em Note: To get a hundred {\bf different} decision stumps,
+      you need to repeatedly sample $50\%$ of the training set and train
+      a decision tree on the sub-sample.} These decision stumps will
+    be your new feature set.  Make sure that you \textbf{only sample from the
+    training set} to generate the decision stumps, otherwise you might
+    contaminate the training set with examples from the test set and
+    this will skew your results.
+
+    Build a data set using the hundred decision stumps
+  (again in the ARFF format, if you need to), as follows: 
+  for each example in the data set, the value of the $i^{th}$ feature
+    will be the prediction of the $i^{th}$ decision stump.  This will
+    give you a new $100$-dimensional feature representation for the data. 
+  Train a linear separator with the SGD algorithm over this data set.
+    \end{enumerate}
+  \end{enumerate}
+
+\textbf{2.1.~Evaluation}
+
+You should compare the five different algorithms -- (a)~simple SGD, (b)~full
+decision tree, (c)~decision stump of depth four, (d)~decision stump of depth eight, and
+(e)~SGD over features derived from $100$ decision stumps.  Remember that this is the minimum. Feel free to
+experiment with more parameter combinations (e.g.,~decision stump depth,
+learning rate for the SGD, and fraction of the data used to train the
+decision stumps), or additional feature classes you came up with.
+
+For each algorithm you experiment with, (i)~run five-fold cross validation on
+the given data set.  This will determine an estimate for the
+algorithm's performance, $p_A$, on unseen examples. Note that $p_A$ is the
+average accuracy over the five folds. (ii)~Calculate the $99\%$ confidence
+interval of this estimate using Student's t-test.
+You will need a table of $t_{n, \alpha}$ values to do this computation
+(see {\tt t-table.pdf}).\footnote{
+\url{http://en.wikipedia.org/wiki/Student's_t-distribution} also has a Student's
+t-distribution table.} 
+
+Rank your algorithms in decreasing order of the performance estimate
+$p_A$.  For each pair of consecutive algorithms in the ranking, show
+if the difference between the two algorithms' performances is or is
+not statistically significant.
+
+\textbf{2.2.~Resources}
+
+The following resources are available on the course homework page:
+\begin{enumerate}
+\item {\tt decision-trees.tar.gz} contains an implementation of the
+  ID3 algorithm from the Weka Machine Learning Library. This includes
+  functionality to limit the depth of the tree to a specified
+  depth. There is example code that uses this class. We have also included a
+  dummy example feature generator that converts the raw text into features in
+  the ARFF format.
+\item {\tt badges.tar.gz} contains the modified badges data and the
+  five splits for cross validation.
+\item {\tt badges.example.arff} is an example ARFF feature file that contains
+features corresponding to the first and last characters in the first name.
+\item {\tt t-table.pdf}: Student's t-distribution table.
+\end{enumerate}
+
+Additionally, you may find the following external resources useful:
+\begin{enumerate}
+\item \url{http://www.cs.waikato.ac.nz/ml/weka/} : The Weka toolkit homepage
+\item \url{http://weka.wikispaces.com/ARFF+%28stable+version%29} : A
+description of the Attribute-Relation File Format
+\end{enumerate}
+
+\textbf{2.3.~What to hand in}
+
+\begin{itemize}
+\item {\bf A  report} \\
+  Create a report listing down different observations from your experiments. 
+In particular, provide the following observations in an organized fashion:
+\begin{itemize}
+\item For each algorithm in
+  order of the ranking you created, describe the feature set and
+  indicate the tree depth and other parameters (specially for SGD,
+report the \textit{learning rate} and \textit{error threshold}).
+\item  Give the value of  $p_A$ for each algorithm. 
+\item Provide the 99\% confidence interval for this value using Student's-t distribution.
+\end{itemize}
+You may provide these numbers in a table
+  or in a graph with error bars. 
+
+  In the end, your conclusion will be that a particular algorithm (or
+  set of algorithms) performed the best.  Briefly state the
+  assumptions that this conclusion is based on.
+
+ \item {\bf Your code and tree displays} \\
+  Hand in all the code you wrote. Also, for each algorithm you
+  experimented with (except the last one on decision stumps as features), include the tree created
+  during cross validation that had the best performance. Mention the number of correct and incorrect
+  predictions made by the tree on the corresponding test set. The tree displays
+  can be similar to the one shown in 1(b). 
+You may add the tree displays to the report in a neat fashion.
+
+Create a {\tt README} file that
+  contains your name and email address, a description of which algorithms
+  correspond to which tree files, and enough information for someone to compile
+  your code and run it.
+
+  Place all files including the tree files and {\tt README} in a
+  directory called {\em userID}{\tt -hw2}.  Remember to exclude
+  executables and object files.  Pack the files together so that when
+  they unpack, the {\em userID}{\tt -hw2} directory is created with
+  all your files in it.  The name of the packed file should be {\em
+    userID}{\tt -hw2.zip} or {\em userID}{\tt -hw2.tar.gz}.
+\end{itemize}
+
+
+\textbf{2.4.~Grading}
+\begin{itemize}
+\item Implementation of  SGD algorithm [10 points]
+\item Implementation of decision tree and decision stumps. Remember that this is the
+\texttt{only} part where you use external commercial code. [10 points]
+\item Implementation of decision stumps as features [20 points]
+\item Evaluation report [30 points]
+\item Other report elements (additional experiments, explanation of
+  implementation and experiments, conclusions, etc.) [10 points]
+\end{itemize}
+
+\end{enumerate}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

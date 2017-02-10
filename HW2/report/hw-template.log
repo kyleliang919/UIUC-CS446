@@ -1,0 +1,185 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  10 FEB 2017 16:13
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**hw-template.tex
+(./hw-template.tex
+LaTeX2e <2016/03/31>
+Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
+(./cs446.tex (/usr/local/texlive/2016/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+\c@theorem=\count87
+\c@corollary=\count88
+\c@lemma=\count89
+\c@claim=\count90
+\c@fact=\count91
+\c@definition=\count92
+\c@assumption=\count93
+\c@observation=\count94
+\c@example=\count95
+)
+
+LaTeX Warning: Unused global option(s):
+    [fullpage].
+
+(./hw-template.aux)
+\openout1 = `hw-template.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+
+Underfull \hbox (badness 10000) detected at line 11
+ []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--21
+
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 21.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 21.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 21.
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--63
+
+ []
+
+[1
+
+{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 63--64
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--72
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--72
+
+ []
+
+[2]
+Overfull \hbox (92.70422pt too wide) in paragraph at lines 76--91
+[][] 
+ []
+
+
+Overfull \hbox (40.72942pt too wide) in paragraph at lines 92--95
+\OT1/cmr/bx/n/12 The $\OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 ^^U[]; ^^O[]\OMS/cmsy/
+m/n/12 g$ \OT1/cmr/bx/n/12 pairs that have been tried are $\OMS/cmsy/m/n/12 f\O
+ML/cmm/m/it/12 ^^U[] \OT1/cmr/m/n/12 = 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 0001\
+OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 0003\OML/c
+mm/m/it/12 ; \OT1/cmr/m/n/12 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 001\OML/cmm/m/i
+t/12 ; \OT1/cmr/m/n/12 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 003\OML/cmm/m/it/12 ;
+ \OT1/cmr/m/n/12 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 01\OML/cmm/m/it/12 ; \OT1/c
+mr/m/n/12 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 03\OML/cmm/m/it/12 ; \OT1/cmr/m/n/
+12 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 1; [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--95
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--103
+
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 104--106
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--302
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--302
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--302
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--302
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--302
+
+ []
+
+[4] [5] [6] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 303--311
+
+ []
+
+[8] (./hw-template.aux) ) 
+Here is how much of TeX's memory you used:
+ 297 strings out of 493014
+ 3147 string characters out of 6133351
+ 70601 words of memory out of 5000000
+ 3912 multiletter control sequences out of 15000+600000
+ 7680 words of font info for 27 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 24i,7n,19p,548b,273s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsl12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmti12.pfb>
+Output written on hw-template.pdf (8 pages, 110759 bytes).
+PDF statistics:
+ 63 PDF objects out of 1000 (max. 8388607)
+ 44 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
