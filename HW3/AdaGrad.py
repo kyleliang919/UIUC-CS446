@@ -34,7 +34,7 @@ class AdaGrad:
                 self.G = self.G + g_t**2
                 self.update_weight(x[i],y[i])
                 self.update_bias(y[i])
-                self.hingeLoss= self.hingeLoss + max(0,1-y[i]*(sum(self.weight*x[i]) + self.bias))
+            self.hingeLoss= self.hingeLoss + max(0,1-temp)
             if temp <= 0:   
                 self.W.append(self.W[i]+1)
             else:
@@ -57,9 +57,11 @@ class AdaGrad:
         self.bias = self.bias + self.learning_rate*y/np.sqrt(self.G[self.G.size-1])
         pass
     def test(self,x,y):
-        num_c = 0
+        num_c = 0    
         for i in range(0,len(x)):
-            if y[i]*(sum(self.weight*x[i]) + self.bias) > 0:
+            temp = y[i]*(sum(self.weight*x[i]) + self.bias)
+            self.hingeLoss= self.hingeLoss + max(0,1-temp)
+            if temp  > 0:
                 num_c = num_c + 1
         return num_c/len(x)
     def parameter_tuning(self,x,y):
@@ -69,9 +71,10 @@ class AdaGrad:
         learning_rate=[1.5, 0.25, 0.03, 0.005, 0.001]
         for rate in learning_rate:
             self.learning_rate=rate
-            self.train(D1_x,D1_y)
-            self.W=[0]
-            self.N=[0]
+            for i in range(0,20):
+                self.train(D1_x,D1_y)
+                self.W=[0]
+                self.N=[0]
             accuracy.append(self.test(D2_x,D2_y))
             self.bias = 0
             self.weight=np.zeros(self.weight.size)
