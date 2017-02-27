@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from gen import gen
 """
 #Q1
-(y, x) = gen(10, 100, 1000, 50000, False)
+(y, x) = gen(10, 100, 500, 50000, False)
 #print(x.shape)
 #print(y.shape)
 
@@ -123,7 +123,7 @@ plt.legend(['perceptron', 'perceptron with margin', 'winnow', 'winnow with margi
 plt.show()
 """
 
-
+"""
 #Q3
 for i in [100,500,1000]:
     (train_y,train_x)=gen(10,i,1000,50000,True)
@@ -168,7 +168,6 @@ for i in [100,500,1000]:
         adaGrad.train(train_x,train_y)
     print("adaGrad\n","learning rate:",adaGrad.learning_rate)
     print("accuracy",adaGrad.test(test_x,test_y))
-
 """
 #Q4
 (data_y,data_x)=gen(10,20,40,10000,True)
@@ -179,7 +178,8 @@ L=[]
 for i in range(0,50):
     Round.append(i+1)
     adaGrad.train(data_x,data_y)
-    W.append(adaGrad.W[-1])
+    adaGrad.hingeLoss=0
+    W.append((1-adaGrad.test(data_x,data_y))*len(data_x))
     L.append(adaGrad.hingeLoss)
     adaGrad.hingeLoss = 0
     adaGrad.W=[0]
@@ -194,4 +194,3 @@ plt.figure()
 plt.plot(Round,L)
 plt.legend(['Loss function'], loc='upper left')
 plt.show()
-"""
